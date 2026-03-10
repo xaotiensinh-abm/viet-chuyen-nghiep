@@ -1,5 +1,52 @@
 # Changelog — Viết Chuyên Nghiệp
 
+## [v3.1.1] — 2026-03-10
+
+### Added — Merge Output Pipeline
+- `Workers/merge-worker.md` — Worker ghép nhiều file MD thành 1 file, encoding UTF-8 chuẩn
+- `scripts/merge-parts.py` — Python CLI tool merge parts (pattern discovery, BOM strip, VN verify)
+- `Team-Orchestration/merge-output.md` — Pipeline ghép file output
+
+### Changed
+- `Orchestrator/routing-matrix.md` — Thêm route `merge-output` cho ghép file
+- `viet-pro.md` — Thêm pipeline merge-output vào bảng routing workflow
+
+### Notes
+- ⚠️ **KHÔNG dùng PowerShell** để merge file tiếng Việt (gây lỗi encoding)
+- **LUÔN dùng** `scripts/merge-parts.py` hoặc `write_to_file` tool
+
+## [v3.1.0] — 2026-03-10
+
+### Added — Mở rộng Content Types
+- `Ban/style/email.md` — BTV Email (6 loại email, subject line, CTA, sequence)
+- `Ban/style/curriculum.md` — BTV Giáo Trình (Bloom's Taxonomy, module design)
+- `Ban/platform/email-platform.md` — BTV Email Platform (deliverability, spam)
+- `Ban/platform/zalo.md` — BTV Zalo (OA, ZNS, Zalo Ads)
+- `Ban/platform/threads.md` — BTV Threads (micro-content)
+- `Ban/platform/docs.md` — BTV Tài Liệu (PDF, DOCX, Notion)
+- `Team-Orchestration/write-email.md` — Pipeline viết email
+- `Team-Orchestration/write-curriculum.md` — Pipeline viết giáo trình
+- `Team-Orchestration/write-guide.md` — Pipeline viết user guide/SOP
+- `Workers/email-worker.md` — Email execution specialist
+- `Workers/curriculum-worker.md` — Curriculum design specialist
+- `Workers/guide-worker.md` — Technical writing specialist
+- `Context-Layer/CoreModules/email-templates.md` — Email templates + spam blacklist
+- `Context-Layer/CoreModules/curriculum-framework.md` — ADDIE + Bloom framework
+- `Context-Layer/CoreModules/guide-standards.md` — Guide writing standards
+
+### Changed — Core Updates
+- `SKILL.md` v3.0 → v3.1: 25→31 BTV, +3 pipelines, +3 ví dụ, platform roadmap
+- `Orchestrator/routing-matrix.md` → +3 routes (email, curriculum, guide)
+- `Ban/style/lead-style.md` → 7 BTV routing, count clarification (1 Lead + 7 BTV = 8)
+- `Ban/platform/lead-platform.md` → 9 BTV routing (+4 platform mới)
+
+### Fixed — Audit D1-D9
+- `Ban/content/lead-content.md` → +4 enum values (curriculum, guide, sop, faq), +3 pipelines, +research modes
+- `Ban/quality/lead-quality.md` → +domain-specific checks (email spam, Bloom alignment, step validation)
+- `Workers/*.md` → +role boundary notes (Worker vs BTV clarification)
+- `Team-Orchestration/write-*.md` → +Worker references
+- `SKILL.md` → blog clarification, platform roadmap (X, Instagram, YouTube planned for v3.2)
+
 ## [v3.0.2] — 2026-03-10
 
 ### Added

@@ -11,11 +11,11 @@ Chuẩn hóa input/output giữa các Ban để pipeline hoạt động end-to-e
 # OUTPUT của Ban Thu Thập → INPUT cho Ban Biên Tập
 goi_nguyen_lieu:
   brief:
-    loai: "ebook" | "blog" | "social" | "email" | "video_script" | "bao_cao"
-    audience: "CEO SME" | "Gen Z" | "Kỹ sư" | "..." 
+    loai: "ebook" | "blog" | "social" | "email" | "video_script" | "bao_cao" | "curriculum" | "guide" | "sop" | "faq"
+    audience: "CEO SME" | "Gen Z" | "Kỹ sư" | "Nhân viên mới" | "..." 
     tone: "..." # từ tone-of-voice-guide.md
-    do_dai: "X tu"
-    platform: "facebook" | "tiktok" | "linkedin" | "blog" | "all"
+    do_dai: "X tu" | "X modules" | "X steps"
+    platform: "facebook" | "tiktok" | "linkedin" | "blog" | "email" | "zalo" | "threads" | "docs" | "all"
   
   research:
     nguon: [{url, tieu_de, do_tin_cay}]
@@ -74,12 +74,12 @@ phan_quyet:
 ```yaml
 # OUTPUT cuối cùng
 xuat_ban:
-  platform: "facebook" | "tiktok" | "linkedin" | "blog" | "video"
+  platform: "facebook" | "tiktok" | "linkedin" | "blog" | "video" | "email" | "zalo" | "threads" | "docs"
   content: "..." # Đã tối ưu platform
   metadata:
-    do_dai: "X tu"
-    hashtags: [...]
-    format: "text" | "carousel" | "video_script"
+    do_dai: "X tu" | "X modules" | "X steps"
+    hashtags: [...] # hoặc subject_line (email), zns_template_id (zalo)
+    format: "text" | "carousel" | "video_script" | "email_sequence" | "pdf" | "docx"
     lich_dang: "YYYY-MM-DD HH:mm" # gợi ý (optional)
   
   quality_stamp:
@@ -102,9 +102,25 @@ bao_cao_meta:
 
 ---
 
+## 6. Worker → Pipeline (Execution Support) ★ v3.1
+
+```yaml
+# Workers cung cấp execution templates, KHÔNG thay thế BTV
+worker_support:
+  pipeline: "write-email" | "write-curriculum" | "write-guide"
+  worker: "email-worker" | "curriculum-worker" | "guide-worker"
+  provides:
+    - templates: [...] # Execution frameworks
+    - formulas: [...] # Domain-specific patterns
+  note: "BTV quyết định editorial rules, Worker bổ sung execution knowledge"
+```
+
+---
+
 ## Quy tắc Giao tiếp
 
 1. **Mỗi Ban CHỈ đọc input YAML** — không đọc trực tiếp output Ban khác
 2. **Mỗi Ban CHỈ viết output YAML** — không sửa output Ban trước
 3. **Trưởng Ban chịu trách nhiệm** hợp nhất output từ BTV của mình
 4. **Tổng Biên Tập chịu trách nhiệm** chuyển output giữa các Ban
+5. **Worker CHỈ bổ trợ** — không có quyền veto output BTV ★

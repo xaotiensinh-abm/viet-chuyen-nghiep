@@ -1,6 +1,6 @@
 {
   "skill_name": "viet-chuyen-nghiep",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "architecture": "toa-soan",
   "language": "vi",
   "default_research_mode": "deep-first",
@@ -27,8 +27,8 @@
     "style": {
       "path": "Ban/style/",
       "lead": "lead-style.md",
-      "members": ["storytelling.md", "rhythm.md", "narrative.md", "presentation.md", "technical.md"],
-      "role": "Biên tập: phong cách, cốt truyện, nhịp văn, format"
+      "members": ["storytelling.md", "rhythm.md", "narrative.md", "presentation.md", "technical.md", "email.md", "curriculum.md"],
+      "role": "Biên tập: phong cách, cốt truyện, nhịp văn, format, email, giáo trình"
     },
     "quality": {
       "path": "Ban/quality/",
@@ -39,8 +39,8 @@
     "platform": {
       "path": "Ban/platform/",
       "lead": "lead-platform.md",
-      "members": ["facebook.md", "tiktok.md", "linkedin.md", "video.md"],
-      "role": "Xuất bản: tối ưu đa nền tảng"
+      "members": ["facebook.md", "tiktok.md", "linkedin.md", "video.md", "email-platform.md", "zalo.md", "threads.md", "docs.md"],
+      "role": "Xuất bản: tối ưu đa nền tảng (social + email + zalo + threads + docs)"
     },
     "examples": {
       "path": "Ban/examples/",
@@ -62,7 +62,17 @@
     "critique-content": ["content", "quality"],
     "deep-research": ["content", "quality"],
     "publish-ready": ["quality", "platform"],
-    "repurpose": ["content", "style", "quality", "platform"]
+    "repurpose": ["content", "style", "quality", "platform"],
+    "write-email": ["content", "style", "quality", "platform"],
+    "write-curriculum": ["content", "style", "quality", "platform"],
+    "write-guide": ["content", "style", "quality", "platform"]
+  },
+  "workers_v31": {
+    "status": "ACTIVE_SUPPORT",
+    "path": "Workers/",
+    "members": ["email-worker.md", "curriculum-worker.md", "guide-worker.md"],
+    "role": "Execution specialists — bổ sung templates và frameworks cho BTV",
+    "note": "Workers KHÔNG thay thế BTV. Pipeline gọi BTV trước → Worker bổ sung."
   },
   "knowledge_base": {
     "core_modules": "Context-Layer/CoreModules/",
@@ -76,7 +86,7 @@
     "workers": {
       "status": "DEPRECATED",
       "path": "Workers/",
-      "note": "Thay thế bởi Ban/ từ v3.0. Giữ lại để tham khảo."
+      "note": "Workers v2.0 DEPRECATED. 3 Workers v3.1 mới (email/curriculum/guide) giữ trạng thái ACTIVE."
     },
     "sub_agents": {
       "status": "DEPRECATED",

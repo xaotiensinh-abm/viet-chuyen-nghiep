@@ -11,10 +11,14 @@ Nhận bài PASS từ quality/
 │
 ├─ Xác định platform mục tiêu
 ├─ Route đến BTV platform tương ứng:
-│  ├─ facebook.md   → Tối ưu cho Facebook
-│  ├─ tiktok.md     → Tối ưu cho TikTok
-│  ├─ linkedin.md   → Tối ưu cho LinkedIn
-│  └─ video.md      → Tối ưu cho Video Script
+│  ├─ facebook.md        → Tối ưu cho Facebook
+│  ├─ tiktok.md          → Tối ưu cho TikTok
+│  ├─ linkedin.md        → Tối ưu cho LinkedIn
+│  ├─ video.md           → Tối ưu cho Video Script
+│  ├─ email-platform.md ★ → Deliverability, responsive, spam check
+│  ├─ zalo.md ★          → Zalo OA, ZNS, Zalo Ads
+│  ├─ threads.md ★       → Meta Threads micro-content
+│  └─ docs.md ★          → PDF, DOCX, Notion document
 │
 └─ Output: Bộ content sẵn sàng publish
 ```
@@ -29,10 +33,10 @@ Khi repurpose 1 bài cho nhiều platform:
 
 ```yaml
 xuat_ban:
-  platform_chinh: "facebook" | "tiktok" | "linkedin" | "blog" | "video"
+  platform_chinh: "facebook" | "tiktok" | "linkedin" | "blog" | "video" | "email" | "zalo" | "threads" | "docs"
   platform_phu: [danh_sach]
   content_da_toi_uu: true
-  format_output: "markdown" | "text" | "yaml"
+  format_output: "markdown" | "text" | "yaml" | "html" | "pdf" | "docx"
   do_dai_cuoi: "X tu"
   hashtags: [danh_sach]
   lich_dang: "YYYY-MM-DD HH:mm"

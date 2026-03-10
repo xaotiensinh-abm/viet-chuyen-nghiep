@@ -1,17 +1,17 @@
-# Ma trận Điều hướng — v3.0 Kiến Trúc Tòa Soạn
+# Ma trận Điều hướng — v3.1 Kiến Trúc Tòa Soạn
 
-## Sơ đồ Pipeline v3.0
+## Sơ đồ Pipeline v3.1
 
 ```
 USER → Tổng Biên Tập (SKILL.md)
          │
          ├─ BAN THU THẬP (content/)  → Bóc brief, nghiên cứu, phân tích
          │
-         ├─ BAN BIÊN TẬP (style/)   → Biên tập phong cách (6 BTV)
+         ├─ BAN BIÊN TẬP (style/)   → Biên tập phong cách (8 BTV) ← +2 mới
          │
          ├─ BAN KIỂM DUYỆT (quality/) → 6 kiểm tra song song → PASS/REVISE/REJECT
          │
-         ├─ BAN XUẤT BẢN (platform/) → Tối ưu đa nền tảng
+         ├─ BAN XUẤT BẢN (platform/) → Tối ưu đa nền tảng (9 BTV) ← +4 mới
          │
          └─ OUTPUT → User
 ```
@@ -28,7 +28,11 @@ USER → Tổng Biên Tập (SKILL.md)
 | Phản biện | "phản biện", "critique", "review logic" | `critique-content` | content → quality (logic + fact-check) |
 | Research thuần | "nghiên cứu", "tìm hiểu", "deep research" | `deep-research` | content (research only) → quality |
 | Repurpose | "chuyển thể", "repurpose", "viết lại cho [platform]" | `write-new` | content (light) → style → quality → platform |
+| **Viết email** ★ | "viết email", "email marketing", "cold email", "email sequence", "nurture" | `write-email` | content (light) → style (email) → quality → platform (email) |
+| **Viết giáo trình** ★ | "viết giáo trình", "viết khóa học", "training manual", "thiết kế module" | `write-curriculum` | content (deep) → style (curriculum+technical) → quality → platform (docs) |
+| **Viết user guide** ★ | "viết hướng dẫn", "viết SOP", "user guide", "onboarding guide", "FAQ" | `write-guide` | content → style (technical+presentation) → quality → platform (docs) |
 | Xuất bản | "publish", "kiểm duyệt cuối", "ready to publish" | `publish-ready` | quality (full 6 kiểm tra) → platform |
+| **Ghép file** ★ | "merge", "ghép file", "gộp parts", "merge parts", "nối file" | `merge-output` | merge-worker → quality (verify encoding) |
 
 ## Quy tắc Routing
 
@@ -63,7 +67,7 @@ Tối đa 2 vòng. Nếu vẫn fail → REJECT → content/ nghiên cứu lại.
 
 Mỗi Trưởng Ban tự phân công BTV nào xử lý:
 - `Ban/content/lead-content.md` → phân công research.md, analysis.md
-- `Ban/style/lead-style.md` → phân công 5 BTV theo tín hiệu bài
+- `Ban/style/lead-style.md` → phân công 7 BTV theo tín hiệu bài (+email, +curriculum)
 - `Ban/quality/lead-quality.md` → chạy 6 BTV song song, quyết định PASS/REVISE/REJECT
-- `Ban/platform/lead-platform.md` → route đến BTV platform tương ứng
+- `Ban/platform/lead-platform.md` → route đến BTV platform tương ứng (+email-platform, +zalo, +threads, +docs)
 - `Ban/meta/lead-meta.md` → kích hoạt khi cần audit/nâng cấp system

@@ -21,7 +21,7 @@ Nhận brief từ Tổng Biên Tập
 ```yaml
 nguyen_lieu:
   brief_parsed:
-    loai: "blog" | "ebook" | "social" | "email" | "video_script" | "bao_cao"
+    loai: "blog" | "ebook" | "social" | "email" | "video_script" | "bao_cao" | "curriculum" | "guide" | "sop" | "faq"
     audience: "..."
     tone: "..." # từ tone-of-voice-guide.md
     do_dai: "X tu"
@@ -47,6 +47,20 @@ nguyen_lieu:
 | "Sửa bài", "chỉnh lại" | **edit-draft** | content (light) → style → quality |
 | "Chấm bài", "đánh giá" | **grade** | content (light) → quality (rubric) |
 | "Phản biện" | **critique** | content → quality (logic + fact) |
+| "Viết email", "email marketing", "cold email" ★ | **write-email** | content (light) → style (email) → quality → platform (email) |
+| "Viết giáo trình", "khóa học", "training" ★ | **write-curriculum** | content (deep) → style (curriculum) → quality → platform (docs) |
+| "Viết hướng dẫn", "SOP", "user guide", "FAQ" ★ | **write-guide** | content → style (technical) → quality → platform (docs) |
+
+## Research Mode theo Task Type
+
+| Pipeline | Research Mode | Độ sâu |
+|----------|--------------|--------|
+| write-new | Standard | Research nguồn 5 lớp, cross-verify |
+| write-email | Light | Target audience, pain points, competitor emails |
+| write-curriculum | Deep | Domain expertise, best practices, benchmark khóa học tương tự, learning science |
+| write-guide | Medium | Product/process knowledge, user pain points, existing docs |
+| edit-draft | Light | Verify claims trong bản gốc |
+| grade / critique | Light | Cross-check facts + logic |
 
 ## Ràng buộc
 - KHÔNG viết content — chỉ thu thập nguyên liệu

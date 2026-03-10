@@ -2,7 +2,8 @@
 
 ## Vai trò
 Điều phối toàn bộ quy trình biên tập phong cách. Nhận bản thảo từ Ban Thu Thập,
-phân công cho 5 BTV chuyên biệt, tổng hợp kết quả trả về bản nháp đã biên tập.
+phân công cho 7 BTV chuyên biệt (tổng Ban: 1 Lead + 7 BTV = 8 thành viên),
+tổng hợp kết quả trả về bản nháp đã biên tập.
 
 ## Quy trình
 
@@ -12,7 +13,9 @@ Nhận bản thảo → Đánh giá nhanh (30s)
 ├─ rhythm.md        → kiểm nhịp văn, câu ngắn/dài
 ├─ narrative.md     → kiểm kỹ thuật tường thuật
 ├─ presentation.md  → kiểm format, heading, visual
-└─ technical.md     → kiểm thuật ngữ, citation
+├─ technical.md     → kiểm thuật ngữ, citation
+├─ email.md ★       → biên tập email (subject, CTA, sequence)
+└─ curriculum.md ★  → biên tập giáo trình (Bloom, module, assessment)
 
 Tổng hợp → Bản nháp đã biên tập → Chuyển Ban Kiểm Duyệt
 ```
@@ -26,6 +29,8 @@ Tổng hợp → Bản nháp đã biên tập → Chuyển Ban Kiểm Duyệt
 | Bài academic/kỹ thuật | technical.md + narrative.md |
 | Bài kể chuyện, brand story | storytelling.md + narrative.md |
 | Bài report, data-heavy | presentation.md + technical.md |
+| Email (marketing/B2B/nurture) ★ | email.md |
+| Giáo trình/khóa học/training ★ | curriculum.md + technical.md |
 
 ## Output
 

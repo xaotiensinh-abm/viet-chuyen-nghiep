@@ -144,5 +144,130 @@ Sau mỗi thay đổi hệ thống, chạy lại:
 
 - [ ] Test Case 1 (write-new → blog LinkedIn) — pipeline 4 Ban
 - [ ] Test Case 2 (grade-content → rubric 100) — pipeline 2 Ban
+- [ ] Test Case 3 (write-email → email sequence) — pipeline email ★
+- [ ] Test Case 4 (write-curriculum → 5 modules) — pipeline curriculum ★
+- [ ] Test Case 5 (write-guide → SOP onboarding) — pipeline guide ★
 - [ ] REVISE loop: cố ý tạo bài anti-AI > 60% → verify quality/ reject → style/ sửa
 - [ ] Escalation: cố ý brief mơ hồ → verify hệ thống hỏi user
+- [ ] Email escalation: spam score > 5 → verify escalation to style/email ★
+- [ ] Curriculum escalation: Bloom nhảy 2+ levels → verify escalation ★
+
+---
+
+## Test Case 3: Viết Email Sequence (write-email) ★ v3.1
+
+### Input
+```
+"Viết chuỗi 3 email nurture cho khóa coaching AI.
+Audience: CEO SME Việt Nam.
+Tone: Chuyên gia tư vấn.
+Mục đích: Nurture → đăng ký demo."
+```
+
+### Expected Pipeline
+```
+content/ (light) → style/ (email) → quality/ → platform/ (email)
+```
+
+### Bước kiểm tra
+| Checkpoint | Expected |
+|-----------|----------|
+| BTV email.md activated | ✅ Subject line formulas applied |
+| Sequence progression | Email 1 (awareness) → 2 (consideration) → 3 (CTA) |
+| Spam trigger scan | 0 spam words from blacklist |
+| CTA clarity | Mỗi email 1 CTA duy nhất, rõ ràng |
+| Personalization tokens | [Tên], [Công ty] ở vị trí phù hợp |
+| Platform optimization | Responsive layout, preheader text |
+
+### Expected Output
+```yaml
+xuat_ban:
+  platform: "email"
+  content: "..." # 3 emails đã biên tập
+  metadata:
+    format: "email_sequence"
+    subject_lines: ["...", "...", "..."]
+  quality_stamp:
+    diem: 85
+    spam_score: 1
+    verified: true
+```
+
+---
+
+## Test Case 4: Viết Giáo Trình (write-curriculum) ★ v3.1
+
+### Input
+```
+"Viết giáo trình 5 module về ứng dụng AI vào quản trị doanh nghiệp.
+Audience: CEO/quản lý cấp trung.
+Mỗi module 45 phút. Có bài tập + quiz."
+```
+
+### Expected Pipeline
+```
+content/ (deep) → style/ (curriculum + technical) → quality/ → platform/ (docs)
+```
+
+### Bước kiểm tra
+| Checkpoint | Expected |
+|-----------|----------|
+| BTV curriculum.md activated | ✅ Bloom's Taxonomy mapping |
+| Module progression | Remember → Understand → Apply → Analyze → Create |
+| Assessment matrix | Quiz + Bài tập + Case study đúng level |
+| Ratio check | 40% theory / 40% practice / 20% assessment |
+| Module bridge | Mỗi module kết thúc với preview module sau |
+
+### Expected Output
+```yaml
+xuat_ban:
+  platform: "docs"
+  content: "..." # 5 modules đầy đủ
+  metadata:
+    format: "pdf"
+    do_dai: "5 modules"
+  quality_stamp:
+    diem: 80
+    bloom_alignment: true
+    verified: true
+```
+
+---
+
+## Test Case 5: Viết SOP (write-guide) ★ v3.1
+
+### Input
+```
+"Viết SOP quy trình onboarding nhân viên mới cho công ty tech 50 người.
+Bao gồm checklist ngày 1, tuần 1, tháng 1."
+```
+
+### Expected Pipeline
+```
+content/ → style/ (technical + presentation) → quality/ → platform/ (docs)
+```
+
+### Bước kiểm tra
+| Checkpoint | Expected |
+|-----------|----------|
+| BTV technical.md activated | ✅ Step-by-step numbering |
+| SOP structure | Mục đích → Phạm vi → RACI → Quy trình → Biểu mẫu |
+| Steps single action | Mỗi step = 1 action, verb đầu câu |
+| Callout boxes | ⚠️ WARNING, 💡 TIP present |
+| Troubleshooting | FAQ section cuối |
+| Version tracking | Ngày + phiên bản header |
+
+### Expected Output
+```yaml
+xuat_ban:
+  platform: "docs"
+  content: "..." # SOP đầy đủ
+  metadata:
+    format: "docx"
+    do_dai: "15 steps"
+    attachments: ["checklist_ngay1.md", "raci_matrix.md"]
+  quality_stamp:
+    diem: 82
+    step_validation: true
+    verified: true
+```

@@ -1,4 +1,4 @@
-# Quy tắc Leo thang — v3.0
+# Quy tắc Leo thang — v3.1
 
 ## Mục đích
 
@@ -14,9 +14,12 @@ thay vì tự quyết định. Ngăn BTV self-decide trong tình huống rủi r
 | Rubric score < 40 | 🔴 Critical | Tổng Biên Tập | REJECT + nghiên cứu lại |
 | Anti-AI score > 60 | 🔴 Critical | Tổng Biên Tập | Full anti-AI rewrite |
 | Claim risk = critical | 🔴 Critical | Tổng Biên Tập | Block publish |
+| Email spam score > 5/10 ★ | 🔴 Critical | Ban Biên Tập (style/email) | Rewrite subject + body |
 | 2 vòng REVISE thất bại | 🟡 High | Tổng Biên Tập | Manual intervene |
 | Research tất cả nguồn < Tier 2 | 🟡 High | Ban Thu Thập (content/) | Nâng cấp nguồn |
 | Brief mơ hồ (3+ unknowns) | 🟡 High | Ban Thu Thập (content/) | Hỏi user |
+| Bloom progression nhảy 2+ levels ★ | 🟡 High | Ban Biên Tập (style/curriculum) | Refactor module sequence |
+| SOP thiếu RACI hoặc flowchart ★ | 🟡 High | Ban Biên Tập (style/technical) | Bổ sung required sections |
 | Tone drift > 3 sections | ⚪ Medium | Ban Biên Tập (style/) | BTV rhythm/narrative sửa |
 | Consistency score < 70 | ⚪ Medium | Ban Kiểm Duyệt (quality/) | Chạy lại consistency.md |
 | Format non-standard | ⚪ Low | Tự xử lý | Auto-fix |
