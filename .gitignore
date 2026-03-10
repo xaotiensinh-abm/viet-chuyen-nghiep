@@ -1,0 +1,23 @@
+# OS
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node (nếu có scripts)
+node_modules/
+package-lock.json
+
+# Temp
+tmp/
+*.tmp
+*.log
+
+# Legacy (giữ trong repo nhưng mark deprecated)
+# Workers/ và SubAgents/ vẫn giữ để backward compatibility
