@@ -89,62 +89,77 @@
 
 Lấy cảm hứng từ mô hình tòa soạn báo chí truyền thống, nơi mỗi bài viết đều phải qua nhiều vòng biên tập trước khi xuất bản.
 
-```
-                        ┌─────────────────────┐
-                        │   📋 YÊU CẦU USER   │
-                        └──────────┬──────────┘
-                                   │
-                        ┌──────────▼──────────┐
-                        │  🎩 TỔNG BIÊN TẬP   │
-                        │    (SKILL.md)        │
-                        │  Phân loại & Routing │
-                        └──────────┬──────────┘
-                                   │
-              ┌────────────────────┼────────────────────┐
-              │                    │                    │
-   ┌──────────▼──────────┐        │         ┌──────────▼──────────┐
-   │ 📰 BAN THU THẬP     │        │         │ 🔧 BAN PHÁT TRIỂN   │
-   │    content/          │        │         │    meta/             │
-   │ • Research 5 lớp     │        │         │ • Upgrade tự động    │
-   │ • Phân tích audience │        │         │ • Style audit        │
-   │ • Outline chiến lược │        │         │ • Cải thiện liên tục │
-   └──────────┬──────────┘        │         └──────────────────────┘
-              │                    │
-   ┌──────────▼──────────┐        │
-   │ 🎨 BAN BIÊN TẬP     │        │
-   │    style/            │        │
-   │ • Storytelling       │        │
-   │ • Rhythm & nhịp văn  │        │
-   │ • Kỹ thuật tường thuật│       │
-   │ • Trình bày & format │        │
-   │ • Thuật ngữ chuyên môn│       │
-   └──────────┬──────────┘        │
-              │                    │
-   ┌──────────▼──────────┐        │
-   │ 🛡️ BAN KIỂM DUYỆT   │        │
-   │    quality/          │        │
-   │ • Dấu câu tiếng Việt│        │
-   │ • Viết hoa chuẩn    │        │
-   │ • Văn phong tự nhiên │        │
-   │ • Anti-AI detection  │        │
-   │ • Fact-check 5 tier  │        │
-   │ • Consistency check  │        │
-   └──────────┬──────────┘        │
-              │                    │
-              ├── PASS ────────────┤
-              │                    │
-   ┌──────────▼──────────┐        │         ┌──────────────────────┐
-   │ 📡 BAN XUẤT BẢN      │        │         │ 📖 BAN TƯ LIỆU       │
-   │    platform/         │        │         │    examples/         │
-   │ • Facebook VN 2026   │        │         │ • Bài mẫu đã duyệt  │
-   │ • TikTok Gen Z       │        └─────────│ • Golden outputs     │
-   │ • LinkedIn B2B       │                  └──────────────────────┘
-   │ • Video script       │
-   └──────────┬──────────┘
-              │
-   ┌──────────▼──────────┐
-   │  ✅ OUTPUT HOÀN CHỈNH │
-   └─────────────────────┘
+```mermaid
+graph TD
+    USER["📋 YÊU CẦU USER"]
+    TBT["🎩 TỔNG BIÊN TẬP<br/><i>SKILL.md — Phân loại & Routing</i>"]
+
+    USER --> TBT
+
+    subgraph CONTENT ["📰 BAN THU THẬP — content/"]
+        C1["🔍 Research 5 lớp"]
+        C2["👥 Phân tích Audience"]
+        C3["📝 Outline chiến lược"]
+    end
+
+    subgraph STYLE ["🎨 BAN BIÊN TẬP — style/"]
+        S1["📖 Storytelling"]
+        S2["🎵 Rhythm & nhịp văn"]
+        S3["🗣️ Kỹ thuật tường thuật"]
+        S4["🖼️ Trình bày & format"]
+        S5["🔬 Thuật ngữ chuyên môn"]
+    end
+
+    subgraph QUALITY ["🛡️ BAN KIỂM DUYỆT — quality/"]
+        Q1["✏️ Dấu câu tiếng Việt"]
+        Q2["🔤 Viết hoa chuẩn"]
+        Q3["💬 Văn phong tự nhiên"]
+        Q4["🤖 Anti-AI detection"]
+        Q5["📚 Fact-check 5 tier"]
+        Q6["🔗 Consistency check"]
+    end
+
+    subgraph PLATFORM ["📡 BAN XUẤT BẢN — platform/"]
+        P1["📘 Facebook VN 2026"]
+        P2["🎵 TikTok Gen Z"]
+        P3["💼 LinkedIn B2B"]
+        P4["🎬 Video script"]
+    end
+
+    subgraph EXAMPLES ["📖 BAN TƯ LIỆU — examples/"]
+        E1["⭐ Bài mẫu đã duyệt"]
+        E2["🏆 Golden outputs"]
+    end
+
+    subgraph META ["🔧 BAN PHÁT TRIỂN — meta/"]
+        M1["⬆️ Upgrade tự động"]
+        M2["🔎 Style audit"]
+        M3["♻️ Cải thiện liên tục"]
+    end
+
+    TBT --> CONTENT
+    CONTENT --> STYLE
+    STYLE --> QUALITY
+
+    QUALITY -- "✅ PASS" --> PLATFORM
+    QUALITY -- "🔄 REVISE" --> STYLE
+    QUALITY -- "❌ REJECT" --> CONTENT
+
+    PLATFORM --> OUTPUT["✅ OUTPUT HOÀN CHỈNH"]
+
+    TBT -.->|"Tham chiếu"| EXAMPLES
+    TBT -.->|"Tự cải thiện"| META
+
+    style USER fill:#667eea,stroke:#5a67d8,color:#fff,stroke-width:2px
+    style TBT fill:#764ba2,stroke:#6b46a1,color:#fff,stroke-width:2px
+    style OUTPUT fill:#38a169,stroke:#2f855a,color:#fff,stroke-width:3px
+
+    style CONTENT fill:#ebf8ff,stroke:#3182ce,stroke-width:2px
+    style STYLE fill:#fefcbf,stroke:#d69e2e,stroke-width:2px
+    style QUALITY fill:#fed7d7,stroke:#e53e3e,stroke-width:2px
+    style PLATFORM fill:#c6f6d5,stroke:#38a169,stroke-width:2px
+    style EXAMPLES fill:#e9d8fd,stroke:#805ad5,stroke-width:2px
+    style META fill:#feebc8,stroke:#dd6b20,stroke-width:2px
 ```
 
 ### 6 Ban — 25 BTV
