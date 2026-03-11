@@ -26,26 +26,28 @@
 
 ```mermaid
 graph LR
-    subgraph "❌ Chatbot Truyền Thống"
+    subgraph OLD["❌ Chatbot Truyền Thống"]
         A["1 prompt → 1 output"] --> B["Chấp nhận kết quả"]
     end
-    subgraph "✅ Viết Chuyên Nghiệp"
+    subgraph NEW["✅ Viết Chuyên Nghiệp"]
         C["Brief"] --> D["Research"]
         D --> E["Viết"]
         E --> F["Biên tập"]
         F --> G["QC 7 Gate"]
-        G -->|"PASS"| H["Xuất bản 9 nền tảng"]
-        G -->|"REVISE"| F
+        G -->|PASS| H["Xuất bản 9 nền tảng"]
+        G -->|REVISE| F
     end
 
-    style A fill:#1a1a2e,stroke:#e94560,color:#fff
-    style B fill:#1a1a2e,stroke:#e94560,color:#fff
-    style C fill:#0f3460,stroke:#00d2ff,color:#fff
-    style D fill:#0f3460,stroke:#00d2ff,color:#fff
-    style E fill:#0f3460,stroke:#00d2ff,color:#fff
-    style F fill:#16213e,stroke:#7C3AED,color:#fff
-    style G fill:#16213e,stroke:#00C853,color:#fff
-    style H fill:#1a1a2e,stroke:#FFD700,color:#fff
+    style OLD fill:#fee2e2,stroke:#ef4444,color:#000
+    style NEW fill:#dcfce7,stroke:#22c55e,color:#000
+    style A fill:#fecaca,stroke:#ef4444,color:#000
+    style B fill:#fecaca,stroke:#ef4444,color:#000
+    style C fill:#dbeafe,stroke:#3b82f6,color:#000
+    style D fill:#dbeafe,stroke:#3b82f6,color:#000
+    style E fill:#dbeafe,stroke:#3b82f6,color:#000
+    style F fill:#e9d5ff,stroke:#8b5cf6,color:#000
+    style G fill:#bbf7d0,stroke:#22c55e,color:#000
+    style H fill:#fef9c3,stroke:#eab308,color:#000
 ```
 
 | Thế giới thật | Viết Chuyên Nghiệp |
@@ -101,17 +103,17 @@ graph TB
 
     subgraph BAN["🏛️ BAN LAYER — 6 Ban · 31 BTV"]
         direction LR
-        B1["📰 Thu Thập\n3 BTV"]
-        B2["✒️ Biên Tập\n8 BTV"]
-        B3["🔍 Kiểm Duyệt\n7 BTV"]
-        B4["📡 Xuất Bản\n9 BTV"]
+        B1["📰 Thu Thập<br/>3 BTV"]
+        B2["✒️ Biên Tập<br/>8 BTV"]
+        B3["🔍 Kiểm Duyệt<br/>7 BTV"]
+        B4["📡 Xuất Bản<br/>9 BTV"]
         B5["📚 Tư Liệu"]
-        B6["🔬 Phát Triển\n3 Agents"]
+        B6["🔬 Phát Triển<br/>3 Agents"]
     end
 
     B1 --> B2 --> B3
-    B3 -->|"PASS"| B4
-    B3 -->|"REVISE"| B2
+    B3 -->|PASS| B4
+    B3 -->|REVISE| B2
 
     BAN --> WKR
 
@@ -127,17 +129,17 @@ graph TB
         W8["merge"]
     end
 
-    WKR --> SE["📊 Scoring Engine\nGrade 0-100"]
-    SE --> SM["🔄 State Manager\nMax 2 Revisions"]
+    WKR --> SE["📊 Scoring Engine<br/>Grade 0-100"]
+    SE --> SM["🔄 State Manager<br/>Max 2 Revisions"]
     SM --> OUTPUT["✅ Final Output"]
 
-    style USER fill:#1a1a2e,stroke:#00d2ff,color:#fff
-    style ORC fill:#0f3460,stroke:#7C3AED,color:#fff
-    style BAN fill:#16213e,stroke:#00C853,color:#fff
-    style WKR fill:#1a1a2e,stroke:#FFD700,color:#fff
-    style OUTPUT fill:#0f3460,stroke:#00C853,color:#fff
-    style SE fill:#16213e,stroke:#FF6B6B,color:#fff
-    style SM fill:#16213e,stroke:#FF6B6B,color:#fff
+    style USER fill:#dbeafe,stroke:#3b82f6,color:#000
+    style ORC fill:#ede9fe,stroke:#8b5cf6,color:#000
+    style BAN fill:#dcfce7,stroke:#22c55e,color:#000
+    style WKR fill:#fef9c3,stroke:#eab308,color:#000
+    style OUTPUT fill:#bbf7d0,stroke:#16a34a,color:#000
+    style SE fill:#fce7f3,stroke:#ec4899,color:#000
+    style SM fill:#fce7f3,stroke:#ec4899,color:#000
 ```
 
 ---
@@ -297,8 +299,8 @@ flowchart LR
     P10 --> FLOW1
     P11 --> FLOW4["merge-worker → quality"]
 
-    style CORE fill:#0f3460,stroke:#00d2ff,color:#fff
-    style SPECIALIZED fill:#16213e,stroke:#7C3AED,color:#fff
+    style CORE fill:#dbeafe,stroke:#3b82f6,color:#000
+    style SPECIALIZED fill:#ede9fe,stroke:#8b5cf6,color:#000
 ```
 
 | Pipeline | Mô tả | Luồng Ban |
@@ -321,14 +323,14 @@ flowchart LR
 
 ```mermaid
 graph LR
-    TC["🎯 Task Classifier\nAuto-detect pipeline"] --> WE["🔀 Workflow Engine\nRoute to correct Ban"]
-    WE --> SE["📊 Scoring Engine\nGrade 0-100, 6 dimensions"]
-    SE --> SM["🔄 State Manager\nTrack revisions, max 2 loops"]
+    TC["🎯 Task Classifier<br/>Auto-detect pipeline"] --> WE["🔀 Workflow Engine<br/>Route to correct Ban"]
+    WE --> SE["📊 Scoring Engine<br/>Grade 0-100, 6 dimensions"]
+    SE --> SM["🔄 State Manager<br/>Track revisions, max 2 loops"]
 
-    style TC fill:#7C3AED,stroke:#fff,color:#fff
-    style WE fill:#0f3460,stroke:#00d2ff,color:#fff
-    style SE fill:#E11D48,stroke:#fff,color:#fff
-    style SM fill:#00C853,stroke:#fff,color:#fff
+    style TC fill:#e9d5ff,stroke:#8b5cf6,color:#000
+    style WE fill:#dbeafe,stroke:#3b82f6,color:#000
+    style SE fill:#fce7f3,stroke:#ec4899,color:#000
+    style SM fill:#bbf7d0,stroke:#22c55e,color:#000
 ```
 
 - **Task Classifier** — Tự nhận diện loại task, không cần user chỉ định pipeline
@@ -352,15 +354,20 @@ graph TD
     SCAN --> P4["Pattern: Zero opinion"]
     SCAN --> P5["Pattern: Lặp đại từ"]
 
-    P1 --> FIX["✅ Auto-Fix\nThay bằng văn phong tự nhiên"]
+    P1 --> FIX["✅ Auto-Fix — Thay bằng văn phong tự nhiên"]
     P2 --> FIX
     P3 --> FIX
     P4 --> FIX
     P5 --> FIX
 
-    style INPUT fill:#1a1a2e,stroke:#e94560,color:#fff
-    style SCAN fill:#7C3AED,stroke:#fff,color:#fff
-    style FIX fill:#00C853,stroke:#fff,color:#fff
+    style INPUT fill:#fecaca,stroke:#ef4444,color:#000
+    style SCAN fill:#e9d5ff,stroke:#8b5cf6,color:#000
+    style FIX fill:#bbf7d0,stroke:#22c55e,color:#000
+    style P1 fill:#fef9c3,stroke:#eab308,color:#000
+    style P2 fill:#fef9c3,stroke:#eab308,color:#000
+    style P3 fill:#fef9c3,stroke:#eab308,color:#000
+    style P4 fill:#fef9c3,stroke:#eab308,color:#000
+    style P5 fill:#fef9c3,stroke:#eab308,color:#000
 ```
 
 ---
@@ -477,14 +484,14 @@ Xem chi tiết tại [CHANGELOG.md](CHANGELOG.md).
 
 ```mermaid
 graph LR
-    VCP["✍️ Viết Chuyên Nghiệp\nv3.1"] --- AGV["⚛️ Antigravity\nEcosystem"]
-    AGV --- BMAD["📋 BMAD-METHOD\nv6"]
-    AGV --- JARVIS["🤖 Jarvis\nOrchestrator"]
+    VCP["✍️ Viết Chuyên Nghiệp v3.1"] --- AGV["⚛️ Antigravity Ecosystem"]
+    AGV --- BMAD["📋 BMAD-METHOD v6"]
+    AGV --- JARVIS["🤖 Jarvis Orchestrator"]
 
-    style VCP fill:#7C3AED,stroke:#fff,color:#fff
-    style AGV fill:#0f3460,stroke:#00d2ff,color:#fff
-    style BMAD fill:#00C853,stroke:#fff,color:#fff
-    style JARVIS fill:#FFD700,stroke:#1a1a2e,color:#1a1a2e
+    style VCP fill:#e9d5ff,stroke:#8b5cf6,color:#000
+    style AGV fill:#dbeafe,stroke:#3b82f6,color:#000
+    style BMAD fill:#bbf7d0,stroke:#22c55e,color:#000
+    style JARVIS fill:#fef9c3,stroke:#eab308,color:#000
 ```
 
 Được xây dựng bởi **[ABM](https://github.com/xaotiensinh-abm)** — AI Business Mastery
