@@ -1,6 +1,6 @@
 {
   "skill_name": "viet-chuyen-nghiep",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "architecture": "toa-soan",
   "language": "vi",
   "default_research_mode": "deep-first",
@@ -65,12 +65,17 @@
     "repurpose": ["content", "style", "quality", "platform"],
     "write-email": ["content", "style", "quality", "platform"],
     "write-curriculum": ["content", "style", "quality", "platform"],
-    "write-guide": ["content", "style", "quality", "platform"]
+    "write-guide": ["content", "style", "quality", "platform"],
+    "write-fiction": ["content", "style", "quality", "platform"],
+    "write-edu": ["content", "style", "quality", "platform"],
+    "write-slide": ["content", "style", "quality", "platform"],
+    "write-research": ["content", "style", "quality", "platform"],
+    "write-social": ["content", "style", "quality", "platform"]
   },
   "workers_v31": {
     "status": "ACTIVE_SUPPORT",
     "path": "Workers/",
-    "members": ["email-worker.md", "curriculum-worker.md", "guide-worker.md"],
+    "members": ["email-worker.md", "curriculum-worker.md", "guide-worker.md", "edu-worker.md", "slide-worker.md", "research-writer-worker.md", "social-writer-worker.md"],
     "role": "Execution specialists — bổ sung templates và frameworks cho BTV",
     "note": "Workers KHÔNG thay thế BTV. Pipeline gọi BTV trước → Worker bổ sung."
   },

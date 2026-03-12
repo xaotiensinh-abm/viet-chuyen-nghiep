@@ -1,5 +1,30 @@
 # Changelog — Viết Chuyên Nghiệp
 
+## [v3.2.0] — 2026-03-12
+
+### Added — Novel-Writer Pipelines Integration
+- `Workers/edu-worker.md` — EduWriter: tài liệu học tập (handout, workbook, quiz, lesson plan)
+- `Workers/slide-worker.md` — SlideWriter: slide thuyết trình (narrative arc, speaker notes)
+- `Workers/research-writer-worker.md` — ResearchWriter: tài liệu nghiên cứu (white paper, policy brief)
+- `Workers/social-writer-worker.md` — SocialWriter: content social đa nền tảng + repurposing
+- `Team-Orchestration/write-fiction.md` — Pipeline viết truyện fiction (7+1 agent, 130đ QA, 8 thể loại)
+- `Team-Orchestration/write-edu.md` — Pipeline viết tài liệu học tập
+- `Team-Orchestration/write-slide.md` — Pipeline tạo slide thuyết trình
+- `Team-Orchestration/write-research.md` — Pipeline viết tài liệu nghiên cứu
+- `Team-Orchestration/write-social.md` — Pipeline content social đa nền tảng
+
+### Changed
+- `SKILL.md` v3.1 → v3.2: +5 pipelines, +8 workers, +5 ví dụ, +triggers mới, platform roadmap v3.3+
+- `Orchestrator/routing-matrix.md` → v3.2 với +5 routes mới, Workers section
+- `workforce-config.json` → v3.2.0, +5 routes, +4 workers
+- `global_workflows/novel-writer.md` → v3.2 reference
+- `global_workflows/viet-pro.md` → +5 pipeline commands
+
+### Notes
+- Twitter/X nay thuộc danh sách platform supported (qua social-writer-worker)
+- Blog/SEO nay có pipeline riêng (`write-social` với SEO mode)
+- Fiction pipeline sử dụng QA 130 điểm (khác các pipeline khác dùng 100 điểm)
+
 ## [v3.1.1] — 2026-03-10
 
 ### Added — Merge Output Pipeline
